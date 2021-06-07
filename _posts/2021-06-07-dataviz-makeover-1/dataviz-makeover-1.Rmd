@@ -1,7 +1,7 @@
 ---
 title: "DataViz Makeover 1"
 description: |
-  A short description of the post.
+  DataViz Makeover 1 for ISSS608: Visual Analytics
 author:
   - name: LANG Shuang Lesley
     url: https://scis.smu.edu.sg/master-it-business
@@ -16,86 +16,79 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# 1.0 Overview
+# 1.0 The Original Visualization
 
-In this article, we will show you how to plot a figure with multiple histograms by using [**ggplot2**](https://ggplot2.tidyverse.org/) and **ggpubr** packages. 
+The original visualisation can be seen below : 
 
+![](img/img01.png)
 
-# 2.0 Installing and Launching R Packages
+## 2.1 Clarity
 
-Before you get started, you are required:
+### 1. Inaccurate graph title 
+For Hong Kong, Mainland China, Malaysia, Taiwan and US, the graphs have indicated the Import and Export data from 2019 to 2021. Whereas for Japan, the graph only covers trades from 2019 and 2020. Therefore, using the title "2019-2020" is not accurate. 
 
-* to start a new R project, and
-    * to create a new R Markdown document.
-    
-Figure below shows the quadrat plot of Tableau 
-![](img/image01.jpg)
-Your screen should look similar to the screenshot below.
+### 2. Inconsistent y-axis ranges
+The y-axis on the left and on the right represent Export and Import data respectively. However, the scale of these two axes are not synchronized. As a result, the graphs showing can not be used for comparison. In addition, the scale of y-axis of each country is consistent which make it impossible to conduct comparison among these countries. 
 
-![](img/image02.jpg)
+### 3. Incorrect dataset selected 
+By checking the data source, the selected countries are not the top 6 countries in term of trading amounts, e.g. Indonesia has higher export amount than Taiwan and Japan. 
 
-Next, you will use the code chunk below to install and launch ggpubr and tidyverse in RStudio.
+### 4. Improper type of chart 
+Area charts were chosen in this visualization. However, it's not the best choice of chart type to show the development of trading volumes over time as area chart works best for displaying multiple values over a period of time for considerably large differences between the values. The overlapping areas make it hard to see the moving trends of the tradeing values. 
 
-# R code 
-packages = c('ggpubr', 'tidyverse')
+### 5. Lack of clear labeling 
+There's no labeling of y-axis unit in all 6 graphs. 
 
-for(p in packages){library
-  if(!require(p, character.only = T)){
-    install.packages(p)
-  }
-  library(p, character.only = T)
-}
+## 2.2 Aesthetic
 
+### 1. Selection of colors 
+The two colors selected do not show the contrast clearly 
 
-# 3.0 Importing and Preparing The Data Set 
+### 2. Multiple graphs 
+Using individual graph for each country does not really point out the difference in the trade volumes directly.
 
-In this hands-on exercise, the [Wine Quality Data Set](https://archive.ics.uci.edu/ml/datasets/wine+quality) of UCI Machine Learning Repository will be used.  The data set consists of 13 variables and 6497 observations.  For the purpose of this exercise, we have combined the red wine and white wine data into one data file.  It is called wine_quality and is in csv file format.  
+### 3. Legend 
+The legends are not well-defined in the graph. 
 
+### 4. Data source
+There's no mention of data source in this graph. 
 
-## 3.1 Importing Data
+# 3.0 Proposed Visualisation
+![](img/img09.PNG)
 
-First, let us import the data into R by using read_csv() of readr package.  
+# 4.0 Step-by-step Guide
 
+## 4.1 Data Preparation
 
-# R code
-wine <- read_csv("data/wine_quality.csv")
+### Step 1 Delete unecessary data and only keep the 2019 and 2020 data belong to the 6 countries for both Import and Export :  
+![](img/img04.PNG)
 
+### Step 2 Import data to Tableau : 
+![](img/img03.PNG)
 
-Notice that beside quality and type, the rest of the variables are numerical and continuous data type. 
+### Step 3 Select the data and set up the graph. Change the title, include the filter and add the legend and reference line : 
+![](img/img05.PNG)
 
+### Step 4 Create the Net Trade formula and add it to the graph : 
+![](img/img06.PNG)
 
-# 4.0 Univariate EDA with Histogram
+# 5.0 Observations
 
-In the figure below, multiple histograms are plottted by using ggplot() and geom_histogram() of ggplot2 package.  Then, ggarrange() of ggpubr package is used to patch these histogram into a single figure to reveal the distribution of the selected variables in the wine quality data sets.  
+## 5.1 Hong Kong
+Hong Kong is Singapore's biggest export country among the six. 
 
-# Rcode
-fa <- ggplot(data=wine, aes(x= `fixed acidity`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-va <- ggplot(data=wine, aes(x= `volatile acidity`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-ca <- ggplot(data=wine, aes(x= `citric acid`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-rs <- ggplot(data=wine, aes(x= `residual sugar`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-ch <- ggplot(data=wine, aes(x= `chlorides`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-fSO2 <- ggplot(data=wine, aes(x= `free sulfur dioxide`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-tSO2 <- ggplot(data=wine, aes(x= `total sulfur dioxide`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-density <- ggplot(data=wine, aes(x= density)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-pH <- ggplot(data=wine, aes(x= pH)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-sulphates <- ggplot(data=wine, aes(x= sulphates)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-alcohol <- ggplot(data=wine, aes(x= alcohol)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
+## 5.2 Japan
+There's not much variation in term of the trading amount between Singapore and Japan in the past 2 years.
 
-ggarrange(fa, va, ca, rs, ch, fSO2, tSO2, density, pH, sulphates, alcohol, 
-          ncol = 4, nrow = 3)
+## 5.3 Mainland China
+Mainland China has the most trading volume with Singapore in both Import and Export. 
 
+## 5.4 Malaysia
+The net trade between Singapore and Malaysia dropped significantly in 2020. Mostly due to the impact of Covid-19.  
 
+## 5.5 United States
+Trades between Singapore and United States is switching from deficit to surplus overall (Export > Import).
 
-
+## 5.6 Taiwan
+Taiwan has the greatest trade deficits (Export < Import) with Singapore. It is also the smallest trading partner among the six countries. 
 
