@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["dataviz-makeover-2_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-2_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-2_files/distill-2.2.21/template.v2.js","dataviz-makeover-2_files/header-attrs-2.6/header-attrs.js","dataviz-makeover-2_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-2_files/popper-2.6.0/popper.min.js","dataviz-makeover-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","dataviz-makeover-2_files/tippy-6.2.7/tippy-light-border.css","dataviz-makeover-2_files/tippy-6.2.7/tippy.css","dataviz-makeover-2_files/tippy-6.2.7/tippy.umd.min.js","dataviz-makeover-2_files/webcomponents-2.0.0/webcomponents.js","img/original.jpg"]}
+  {"type":"character","attributes":{},"value":["dataviz-makeover-2_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-2_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-2_files/distill-2.2.21/template.v2.js","dataviz-makeover-2_files/header-attrs-2.6/header-attrs.js","dataviz-makeover-2_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-2_files/popper-2.6.0/popper.min.js","dataviz-makeover-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","dataviz-makeover-2_files/tippy-6.2.7/tippy-light-border.css","dataviz-makeover-2_files/tippy-6.2.7/tippy.css","dataviz-makeover-2_files/tippy-6.2.7/tippy.umd.min.js","dataviz-makeover-2_files/webcomponents-2.0.0/webcomponents.js","img/ColorPalette.PNG","img/Column&Row.PNG","img/ComputeUsingTradingPartners.PNG","img/CreateCalculation.PNG","img/Edit Title.PNG","img/EditColor.PNG","img/Export1.PNG","img/Export2.PNG","img/ExportPivot.PNG","img/FilterbyYear.PNG","img/FilterYearofTime.PNG","img/FinalDataSet.PNG","img/FinalGraph.PNG","img/Import1.PNG","img/Import2.PNG","img/ImportDateFormat.PNG","img/ImportHide.PNG","img/ImportNumberFormat.PNG","img/ImportPivot.PNG","img/ImportSplit.PNG","img/MarkPane.PNG","img/MarkPaneLabel.PNG","img/MarkPaneRef Line.PNG","img/Net Trade Ranking.PNG","img/NetExport.PNG","img/NetExportCalculation.PNG","img/NetImportCalculation.PNG","img/NetTradingBalance.PNG","img/NewDataset.PNG","img/Opacity.PNG","img/original.jpg","img/proposed.jpg","img/RefLine.PNG","img/Remove Ref Line on y-axis.PNG","img/ShowAll.PNG","img/ShowFilter.PNG","img/ShowTrendLine.PNG","img/SingleValue.PNG","img/SyncAxis.PNG","img/Tooltip.PNG","img/TotalTradingAmount.PNG","img/TrendLineFormat.PNG","img/YEAR(Time)Filter.PNG"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2098,23 +2098,156 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="d-article">
 <h1 id="the-original-visualization">1. The Original Visualization</h1>
-<p>For this DataViz Makeover assignment, I have used data from Department of Statistics, Singapore (DOS), which collects data of Merchandise Trade by Region/Market. <img src="img/original.jpg" /></p>
+<p>For this DataViz Makeover assignment, data was downloaded from Department of Statistics, Singapore (DOS). The graph below shows Singapore’s 10 major merchandise trading partners.</p>
+<p><img src="img/original.jpg" /></p>
 <h1 id="critiques-and-suggestions-for-current-visualisation">2. Critiques and suggestions for current visualisation</h1>
 <h2 id="clarity">2.1 Clarity</h2>
 <h3 id="no-graph-title">1. No Graph Title</h3>
-<p>There’s no title to indicate the content of this graph. As a viewer, it’s not clear what is this graph about or what is the purpose of showing this graph.</p>
-<h3 id="overlapping-shapes">2. Overlapping Shapes</h3>
-<p>The bubbles shown in the graph are solid and overlapping, thus, viewers are not able to tell the exact Import / Export volumes of each country / region.</p>
-<h3 id="misleading-labels">3. Misleading Labels</h3>
-<p>The labels for each country / region are not aligned with their corresponding bubbles. Viewers may mistakenly read the numbers wrongly.</p>
-<h3 id="unclear-top-net-importer-exporter-labels">4. Unclear Top Net Importer / Exporter Labels</h3>
-<p>How Top Net Importer (Taiwan) and Top Net Exporter (Hong Kong) are calculated is unknown. Viewers are not sure the calculation is based on percentage or total amount.</p>
+<p>There’s no title to indicate the content of the original graph. As a viewer, it’s not clear to find out what is this graph about or what is the purpose and key points of showing this graph.</p>
+<h3 id="missing-proper-labels-for-axes">2. Missing Proper Labels for Axes</h3>
+<p>There’s no title or unit labeled in the original graph for both x- and y- axes. Viewers can not tell the x- and y- axes represent the amount for Export and Import, whether it’s in Singapore dollar or in percentage. In addition, there’s no tick marks on both x- and y- axes. Viewers have to eye-ball to locate the import and export amount which is not accurate. Furthermore, viewers are not able to tell whether the scale of x- and y- axes are synchronized.</p>
+<h3 id="overlapping-shapes">3. Overlapping Shapes</h3>
+<p>In the original graph, the location of each bubble is determined by the Import and Export amount of the particular trading partner. And therefore indicates whether it’s a net importer or exporter by checking the bubble lies on the blue or green region in the graph. However, as the shapes are all in solid form and many are overlapping with each other, the center points of some bubbles are not shown but covered by others instead. Viewers can not tell the exact positions of the center points and thus they are neither able to see which region the bubbles fall in nor determine the corresponding country / region is net importer or exporter.</p>
+<h3 id="confusing-bubble-size">4. Confusing Bubble Size</h3>
+<p>The size of each circle is determined by the sum of import and export amount of respective trading partner which is the sum of the values on x-axis and y-axis. This is not straight forward for hte audience to understand.</p>
+<h3 id="unclear-top-net-importer-exporter">5. Unclear Top Net Importer / Exporter</h3>
+<p>It’s not clear how Top Net Importer (Taiwan) and Top Net Exporter (Hong Kong) are determined. Viewers are not sure the calculation is based on the difference of import and export amount or the percentage of import / export volume compared with the total amount.</p>
+<h3 id="missing-legends">6. Missing Legends</h3>
+<p>There’s no legends shown in the original graph to tell the viewers what are the colors used to represent different counties / regions respectively. Also, the background colors of import and export are not explained. The usage of top net importer and exporter icons are placed way below the graph which is not helpful for viewer to understand.</p>
+<h3 id="unable-to-show-changes-in-trade-over-time">7. Unable to Show Changes in Trade Over Time</h3>
+<p>The original graph failed to indicate the changes of Singapore’s 10 major merchandise trading partners over the years. Instead, it shows the import and export trades with these partners in 2020 only.</p>
 <h2 id="aesthetic">2.2 Aesthetic</h2>
-<h1 id="proposed-visualisation">3. Proposed Visualisation</h1>
-<h1 id="step-by-step-guide">4. Step-by-step Guide</h1>
-<h2 id="data-preparation">4.1 Data Preparation</h2>
+<h3 id="poor-color-choice">1. Poor Color Choice</h3>
+<p>The colors chosen for the bubbles in the orginal graph are not contrast with each other sufficiently. Using blue and green to differentiate import and export are not sufficiently significant as the background of the webpage is also in light blue. To make the graph more viewer-friendly and easy to understand, both colors should be avoided.</p>
+<h3 id="poor-transparency">2. Poor Transparency</h3>
+<p>Solid circles should be avoided to prevent overlapping bubbles. The transparency of the shapes should be adjusted in order for viewers to see the center points of each bubble and therefore be able determine the position.</p>
+<h3 id="misleading-labels">3. Misleading Labels</h3>
+<p>The purpose of displaying the labels of each trading partner next to the corresponding bubble is to indicate the net trading amount and the particular country / region name. However, some labels are not aligned with the bubbles but away from them. Viewers may mistakenly read the numbers and names wrongly. Moreover, some labels are lying on the bubbles of other countries / regions and covering their center points. This makes the graph difficult to read. Using tooltip will be more suitable for this case to avoid making the graph too crowded and to highlight additional key information.</p>
+<h1 id="alternative-design">3. Alternative Design</h1>
+<p>The proposed design is shown as below :</p>
+<p><img src="img/proposed.jpg" /></p>
+<h2 id="clarity-1">3.1 Clarity</h2>
+<ol type="1">
+<li>Title is given to illustrate the purpose of showing this graph.</li>
+<li>Axes labels and unit labels as well as tick marks are provided to help viewer understand the figures indicated in the graph.</li>
+<li>The use of contrast colors for the circles and reference line on a clear background can help the viewer identify the differences.</li>
+<li>Instead of showing 2020 trading amount only, a range from 2011 to 2020 are provided for viewers to better understand the changes over the years upon their selection. tradn</li>
+<li>Country / region with the minimum (ranked 10th in net trading balance among the 10 partners) and maximum (ranked 1st) trading balances are labeled to highlight to the viewers as top importer and top exporter. `</li>
+</ol>
+<h2 id="aesthetic-1">3.2 Aesthetic</h2>
+<ol type="1">
+<li>Removed additional icons and wordings but use tooltip to highlight the key information when mouse over to avoid the messiness.</li>
+<li>White border and 80% opacity are applied to avoid overlapping issue.</li>
+<li>Simple colors “red” and “blue” are used to indicate the trading balances to improve the tidiness of the graph.</li>
+</ol>
+<h1 id="proposed-visualisation">4. Proposed Visualisation</h1>
+<p>The interactive visualization can be found on <a href="https://public.tableau.com/app/profile/lang.shuang.lesley/viz/Book1_16246636508970/BubbleChart">Tableau Public</a>.</p>
+<h1 id="step-by-step-guide">5. Step-By-Step Guide</h1>
+<h2 id="data-preparation">5.1 Data Preparation</h2>
 <h3 id="step-1">Step 1</h3>
-<h1 id="observations">5. Observations</h1>
+<p>Remove the content sheet and only keep the data from Jan 2011 to Dec 2020 for the 10 trading partners : EU, Hong Kong, Indonesia, Japan, Mainland China, Malaysia, Republic of Korea, Taiwan, Thailand and United States. <img src="img/Import1.PNG" /> <img src="img/Export1.PNG" /></p>
+<h3 id="step-2">Step 2</h3>
+<p>The unit for EU is in million dollars whereas the rests are in thousand dollars. To standardize the unit and make it comparable, use million dollars as the only unit by dividing 1000 for the rest of 9 trading partners and only keep 2 decimals then save the cleaned spreadsheet.</p>
+<p><img src="img/Import2.PNG" /></p>
+<p><img src="img/Export2.PNG" /></p>
+<h3 id="step-3">Step 3</h3>
+<p>Open the spreadsheet in Tableau and drag “Imports” in the main pane. Select the second column (2011 Jan), press “Shift” button on the keyboard. Then move to the last column (2020 Dec) and select it. Right-click on the mouse and select “Pivot” from the list. Two new Pivot Fields columns are formed representing the month year and trading amount. Rename them to “Time” and “Import Amount”.</p>
+<p><img src="img/ImportPivot.PNG" style="width:50.0%" /></p>
+<h3 id="step-4">Step 4</h3>
+<p>Select the first column “Variables”, right-click on the mouse and select “Split”. A new column is formed with the partners’ names only.</p>
+<p><img src="img/ImportSplit.PNG" style="width:30.0%" /></p>
+<p>Rename the new column to “Trading Partners” and hide the original one.</p>
+<p><img src="img/ImportHide.PNG" style="width:70.0%" /></p>
+<h3 id="step-5">Step 5</h3>
+<p>Set the “Time” and “Import Amount” columns into “Date” and “Number(Decimal)” formats respectively. Copy the 3 columns into a new Excel spreadsheet.</p>
+<p><img src="img/ImportDateFormat.PNG" style="width:50.0%" /> <img src="img/ImportNumberFormat.PNG" style="width:50.0%" /></p>
+<h3 id="step-6">Step 6</h3>
+<p>Repeat Step 3 to Step 5 for “Exports”. Copy the 3 columns into the same Excel spreadsheet with Import data. Remove repeated columns and only keep “Trading Partners”, “Time” and “Import Amount” &amp; “Export Amount”.</p>
+<p><img src="img/FinalDataSet.PNG" style="width:50.0%" /></p>
+<h3 id="step-7">Step 7</h3>
+<p>Open the spreadsheet containing the new dataset in Tableau and make sure all data formats are correct then enter the working Sheet.</p>
+<p><img src="img/NewDataset.PNG" style="width:40.0%" /></p>
+<h3 id="step-8">Step 8</h3>
+<p>Drag ‘Export Amount’ to “Columns” and ‘Import Amount’ to “Rows”.</p>
+<p><img src="img/Column&amp;Row.PNG" style="width:50.0%" /></p>
+<h3 id="step-9">Step 9</h3>
+<p>Go to “Analysis” on the top menu bar and select “Create Calculated Field”.</p>
+<p><img src="img/CreateCalculation.PNG" style="width:30.0%" /></p>
+<p>Create “Total Trading Amount” by adding “Import Amount” and “Export Amount” together.</p>
+<p><img src="img/TotalTradingAmount.PNG" style="width:50.0%" /></p>
+<p>Create “Net Trading Balance” by using “Export Amount” to minus “Import Amount”.</p>
+<p><img src="img/NetTradingBalance.PNG" style="width:50.0%" /></p>
+<h3 id="step-10">Step 10</h3>
+<p>In the “Marks” pane, drag “Total Trade Amount” into “Size”, “Net Trading Balance” into “Color” and “Trading Partners” into “Detail”. Select “Circle” from “Shape” and adjust the “Size” of the circles.</p>
+<p><img src="img/MarkPane.PNG" style="width:30.0%" /></p>
+<p>Under “Color” settings, change “Opacity” to 80% and “Border” to white color to avoid occlusion and make sure viewers are able to identify the borders.</p>
+<h3 id="step-11">Step 11</h3>
+<p>Select “Edit Colors” option upon clicking “Net Trading Balance” dropdown list.</p>
+<p><img src="img/EditColor.PNG" style="width:20.0%" /></p>
+<p>Select “Red-Blue Diverging” from the “Palette” dropdown list and select “Use Full Color Range” checkbox to ensure the color contrasts. Click on the “Advanced” button and select “Center” and set as “0”.</p>
+<p><img src="img/ColorPalette.PNG" style="width:40.0%" /></p>
+<p>Therefore, if the Net Export amount is positive, the circle will be shown in blue color. Otherwise, the circle will be shown in red, which means the import amount is larger than export.</p>
+<h3 id="step-12">Step 12</h3>
+<p>Drag “Trading Partners” and “Net Trading Balance” to “Label” under Mart Pane. Click on “Label” to edit “Alignment”. Select “Center” for “Horizontal” and “Middle” for “Vertical”. Select “Min/Max” for “Marks to Label” and select “Sum(Net Trading Balance)” from “Field” dropdown list. Tick the checkbox for “Label minimum value” and Label maximum value".</p>
+<p><img src="img/MarkPaneLabel.PNG" style="width:30.0%" /></p>
+<h3 id="step-13">Step 13</h3>
+<p>Drag “Time” to “Filters” pane and select “Years” as to be the parameter to be filtered on.</p>
+<p><img src="img/FilterbyYear.PNG" style="width:30.0%" /></p>
+<p>Select “All” the years in the list and click on “OK”.</p>
+<p><img src="img/FilterYearofTime.PNG" style="width:40.0%" /></p>
+<p>Select “Show Filter” from the dropdown list so that “Years” is shown on the right-hand-side as the filter.</p>
+<p><img src="img/ShowFilter.PNG" style="width:30.0%" /></p>
+<p>Select “Single Value (list)” from the dropdown list of Year(Time) filter and untick “Show”All" Value".</p>
+<p><img src="img/ShowAll.PNG" style="width:40.0%" /></p>
+<h3 id="step-14">Step 14</h3>
+<p>Go to “Analysis” “Create Calculated Field” to create a new parameter “Reference Line”.</p>
+<p><img src="img/RefLine.PNG" style="width:50.0%" /></p>
+<p>Drag it to the “Rows” and make it a second axis. Right-click and select “Synchronize Axis”</p>
+<p><img src="img/SyncAxis.PNG" style="width:30.0%" /></p>
+<p>Right-click on the graph and select “Trend Lines” and choose“Show Trend Lines” and tick “SUM(Reference Line)”.</p>
+<p><img src="img/ShowTrendLine.PNG" style="width:50.0%" /></p>
+<p>Right-click on the trending line and select “Format” and choose the dotted line.</p>
+<p><img src="img/TrendLineFormat.PNG" style="width:30.0%" /></p>
+<p>In the Mark Pane of “SUM(Reference Line)”, remove tooltip and labels and choose “Opacity” as “0”.</p>
+<p><img src="img/MarkPaneRef%20Line.PNG" style="width:30.0%" /></p>
+<p>Go to y-axis and uncheck “Show Header”.</p>
+<p><img src="img/Remove%20Ref%20Line%20on%20y-axis.PNG" style="width:25.0%" /></p>
+<h3 id="step-15">Step 15</h3>
+<p>Create two new parameters, “Net Import” and “Net Export” for the tooltip display.</p>
+<p><img src="img/NetImportCalculation.PNG" style="width:50.0%" /> <img src="img/NetExportCalculation.PNG" style="width:50.0%" /></p>
+<p>Create a new calculation field “Net Trade Ranking”.</p>
+<p><img src="img/Net%20Trade%20Ranking.PNG" style="width:50.0%" /></p>
+<p>Left-click Tooltip in “Mark Pane”, update the Tooltip fields to show trade deficit in red and surplus in blue. Add “Net Trade Ranking” to tooltip as well, select “Trading Partners” as “Compute Using”.</p>
+<p><img src="img/ComputeUsingTradingPartners.PNG" style="width:40.0%" /></p>
+<h3 id="step-16">Step 16</h3>
+<p>Arrange the wordings and edit in the Tooltip textbox :</p>
+<p><img src="img/Tooltip.PNG" style="width:50.0%" /></p>
+<h3 id="step-17">Step 17</h3>
+<p>Add a graph title and select to insert “YEAR(Time)” :</p>
+<p><img src="img/Edit%20Title.PNG" style="width:50.0%" /></p>
+<h3 id="step-18">Step 18</h3>
+<p>Move the YEAR(Time) filter above the graph and hide other legends.</p>
+<p><img src="img/YEAR(Time)Filter.PNG" style="width:75.0%" /></p>
+<p>The completed graph looks like below :</p>
+<p><img src="img/FinalGraph.PNG" style="width:75.0%" /></p>
+<h1 id="observations">6. Observations</h1>
+<h2 id="eu">EU</h2>
+<p>EU has always been a net importer to Singapore over the past 10 years. However, the import and export volume are getting closer and the overall trade balance are becoming more neutral.</p>
+<h2 id="hong-kong">Hong Kong</h2>
+<p>Hong Kong has always been the top exporter a.k.a. ranked number 1 in the net trading balace of Singapore over the past 10 years. The floating range of net trading balance is quite stable which is within the range of 51k to 61k (million dollars). Over the years it maintains a growing trend gradually over the years except for 2019 which might caused by the social instability in Hong Kong.</p>
+<h2 id="japan-republic-of-korea">Japan &amp; Republic of Korea</h2>
+<p>According to the graph, Singapore’s net merchandise trading with these 2 countries are moving from trade deficit (2011 - 2016) towards trade balance (2016 - 2020). This might be due to the stable trading policies and economic stability.</p>
+<p>are quite balanced with these 2 partners as they all located near the diagonal reference line.</p>
+<h2 id="indonesia">Indonesia</h2>
+<p>Th net trading volume between Indonesia and Singapore has shrinked significantly in the past decade. The export to Indonesia has dropped from 57 in 2011 to 30 in 2020 (in billion dollars). In addition, the import from Indonesia to Singapore also decreased since 2015. As the fourth most populous nation, Indonesia’s economy has been growing rapidly in recent years. The observations in merchandise trade between Singapore and Indonesia indicates that Indonesia is becoming more self-sufficient and depend less on foreign import.</p>
+<h2 id="mainland-china-malaysia">Mainland China &amp; Malaysia</h2>
+<p>Before 2013, Malaysia was Singapore’s largest trading partner in terms of total trading amount. However, mainland China has taken over Malaysia and became the country with biggest trading volume with Singapore since 2013. The overall import and export amount of these two countries each account for about 10% of the overall trading volume in th epast decade. There’s no doubt that these two countries are the most important trading partners of Singapore.</p>
+<h2 id="taiwan">Taiwan</h2>
+<p>Taiwan has always been a net importer to Singapore and became the largest importer to Singapore since 2018 though the export amount kept increasing over the years.</p>
+<h2 id="thailand">Thailand</h2>
+<p>Merchandise trading between Singapore and Thailand has been quite stable over the years. Thailand as Singapore’s smallest trading partner among the top 10 is always a net exporter to Singapore.</p>
+<h2 id="united-states">United States</h2>
+<p>United States used to be the top importer to Singapore before 2018. However, due to arising of the export amount to United States, the net trading balance between Singapore and United States has moved towards neutral since 2016 and become trade surplus in 2020.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
