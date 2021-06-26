@@ -1,7 +1,7 @@
 ---
 title: "DataViz Makeover 2"
 description: |
-  A short description of the post.
+  DataViz Makeover 2 : improve visualization of Merchandise Trading of Singapore's Top 10 Trading Partners 
 author:
   - name: LANG Shuang Lesley
     url: https://scis.smu.edu.sg/master-it-business
