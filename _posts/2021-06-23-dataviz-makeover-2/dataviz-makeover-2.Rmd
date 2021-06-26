@@ -1,0 +1,55 @@
+---
+title: "DataViz Makeover 2"
+description: |
+  A short description of the post.
+author:
+  - name: LANG Shuang Lesley
+    url: https://scis.smu.edu.sg/master-it-business
+date: 06-20-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# 1. The Original Visualization
+For this DataViz Makeover assignment, I have used data from  Department of Statistics, Singapore (DOS), which collects data of Merchandise Trade by Region/Market. 
+![](img/original.jpg)
+
+# 2. Critiques and suggestions for current visualisation
+
+## 2.1 Clarity
+
+### 1. No Graph Title
+There's no title to indicate the content of this graph. As a viewer, it's not clear what is this graph about or what is the purpose of showing this graph. 
+
+### 2. Overlapping Shapes
+The bubbles shown in the graph are solid and overlapping, thus, viewers are not able to tell the exact Import / Export volumes of each country / region. 
+
+### 3. Misleading Labels
+The labels for each country / region are not aligned with their corresponding bubbles. Viewers may mistakenly read the numbers wrongly. 
+
+### 4. Unclear Top Net Importer / Exporter Labels 
+How Top Net Importer (Taiwan) and Top Net Exporter (Hong Kong) are calculated is unknown. Viewers are not sure the calculation is based on percentage or total amount. 
+
+## 2.2 Aesthetic
+
+
+# 3. Proposed Visualisation
+
+# 4. Step-by-step Guide
+
+## 4.1 Data Preparation
+
+### Step 1 
+
+
+# 5. Observations
+
+
+
+
